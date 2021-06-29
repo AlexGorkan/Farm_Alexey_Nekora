@@ -720,6 +720,10 @@ PrefabInstance:
       value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3136286323640367603, guid: fca26d3bba1898f4396e3c3a760c289e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136286323640367603, guid: fca26d3bba1898f4396e3c3a760c289e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
