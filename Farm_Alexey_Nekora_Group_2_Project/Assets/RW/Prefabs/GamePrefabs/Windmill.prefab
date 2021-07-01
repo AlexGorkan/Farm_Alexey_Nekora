@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fb37cf606089e4e8b7ae17d5bd3256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 10
+  rotateAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &2530293272064814833
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +140,6 @@ GameObject:
   - component: {fileID: 2530293272064848595}
   - component: {fileID: 2530293272061424371}
   - component: {fileID: 2530293272062554163}
-  - component: {fileID: 1922965617908820364}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
@@ -153,7 +154,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2530293272064814835}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07304573, y: -2.7715032, z: 7.49272}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
@@ -210,15 +211,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1922965617908820364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2530293272064814835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3fb37cf606089e4e8b7ae17d5bd3256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

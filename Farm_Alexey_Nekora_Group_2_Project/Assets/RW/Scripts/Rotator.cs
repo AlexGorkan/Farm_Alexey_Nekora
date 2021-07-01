@@ -9,7 +9,7 @@ public class Rotator : MonoBehaviour
     private Transform wheelTrans; //sozdaem otdelnij Transform dla childa
     void Start()
     {
-        wheelTrans = transform.GetChild(0).GetChild(0); // odnoi oderaciej 
+        wheelTrans = transform.GetChild(0).GetChild(0); // get to grandchild object via one operation
     }
 
     
