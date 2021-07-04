@@ -46,6 +46,12 @@ public class TractorMovement : MonoBehaviour
 
     }
 
+    public void PressFire()
+    {
+        Debug.Log("FIRE!");
+    }
+
+
     public void PressLeft()
     {
         direction = 1f;
