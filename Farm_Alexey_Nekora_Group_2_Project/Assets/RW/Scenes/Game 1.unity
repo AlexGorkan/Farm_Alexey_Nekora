@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44472146, g: 0.494254, b: 0.5734799, a: 1}
+  m_IndirectSpecularColor: {r: 0.4447213, g: 0.494254, b: 0.57348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -798,6 +798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7401b5c2db51d444c81492c4ec581395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  senoPrefab: {fileID: 1499941480}
+  spawnPoint: {fileID: 1433240186}
+  fireRate: 1
   speed: 20
   bounds: 22
 --- !u!850595691 &426476646
@@ -1158,6 +1161,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052481532}
   m_CullTransparentMesh: 1
+--- !u!4 &1433240186 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2125269005203075755, guid: acaed9a4b9c654349a44355b5704c16c, type: 3}
+  m_PrefabInstance: {fileID: 6187525350441775890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1499941480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1209247178507107294, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
+  m_PrefabInstance: {fileID: 1209247178730940711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1508344888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,22 +1412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 289565343}
     m_Modifications:
-    - target: {fileID: 493458171, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
-      propertyPath: hayBaleRotateSpeed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 493458171, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
-      propertyPath: hayBaleRotateAxis.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 493458171, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
-      propertyPath: hayBaleRotateAxis.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209247178325760779, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
-      propertyPath: m_Name
-      value: Hay Bale
-      objectReference: {fileID: 0}
     - target: {fileID: 1209247178507107293, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1429,7 +1426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1209247178507107293, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1209247178507107293, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1462,6 +1459,10 @@ PrefabInstance:
     - target: {fileID: 1209247178507107294, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
       propertyPath: m_Name
       value: Hay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056139875817606137, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
+      propertyPath: moveSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
