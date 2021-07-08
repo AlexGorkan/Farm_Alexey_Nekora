@@ -8,7 +8,8 @@ public class TractorMovement : MonoBehaviour
     [SerializeField] private GameObject senoPrefab; //chem streliat (ssilka na object)
     [SerializeField] private Transform spawnPoint; //tochka spawna na objekte
     [SerializeField] private float fireRate; //chastota spawna
-    private float nextFire; 
+    private float nextFire;
+    [SerializeField] Transform senoContainer;
 
     [Header("Tractor Property")]
     [SerializeField] private float speed;
@@ -81,7 +82,7 @@ public class TractorMovement : MonoBehaviour
             nextFire = Time.time + fireRate;
             GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); 
             Destroy(seno, 15f);
-                   
+            seno.transform.SetParent(senoContainer);       
             
         }
 
