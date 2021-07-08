@@ -15,12 +15,13 @@ public class TractorMovement : MonoBehaviour
     [SerializeField] private float bounds;
     private float direction;
     private bool isPress;
-    //[SerializeField] private string fireMessage = "";
+    
 
 
     private void Start()
     {
-        nextFire = fireRate; // dlja plusovogo timera
+        //nextFire = fireRate; 
+        // dlja plusovogo timera
     }
     void Update()
     {
@@ -34,7 +35,8 @@ public class TractorMovement : MonoBehaviour
             }
         }
 
-        nextFire += Time.deltaTime; // -= Time.deltaTime; minusovij timer
+        //nextFire += Time.deltaTime; //dlja plusovogo
+        // -= Time.deltaTime; minusovij timer
 
 
 
@@ -62,16 +64,28 @@ public class TractorMovement : MonoBehaviour
 
     public void PressFire()
     {
-        if (nextFire > fireRate) // (nextFire < 0)
-        {
-            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); // senoPrefab.transform.rotation - sohrahjaet povorot objecta prefaba
-            Destroy(seno, 15f);
+        //if (nextFire > fireRate) 
+        //    // (nextFire < 0) dlja minusovogo
+        //{
+        //    GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); // senoPrefab.transform.rotation - sohrahjaet povorot objecta prefaba
+        //    Destroy(seno, 15f);
 
-            nextFire = 0f; // nextFire = fireRate;
+        //    nextFire = Time.time + fireRate;
+        //    //nextFire = 0f; //dlja plusovogo
+        //    // nextFire = fireRate; // dlja minusovogo
+        //}
+
+        if (Time.time > nextFire)
+        
+        {
+            nextFire = Time.time + fireRate;
+            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); 
+            Destroy(seno, 15f);
+                   
+            
         }
-        
-        
-        
+
+
     }
 
 
