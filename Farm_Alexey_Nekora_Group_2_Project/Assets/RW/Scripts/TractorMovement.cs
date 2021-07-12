@@ -6,7 +6,7 @@ public class TractorMovement : MonoBehaviour
 {
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab; //chem streliat (ssilka na object)
-    [SerializeField] private Transform spawnPoint; //tochka spawna na objekte
+    [SerializeField] private Transform spawnPoint; //tochka spawna na drugom objekte
     [SerializeField] private float fireRate; //chastota spawna
     private float nextFire;
     [SerializeField] Transform senoContainer;
