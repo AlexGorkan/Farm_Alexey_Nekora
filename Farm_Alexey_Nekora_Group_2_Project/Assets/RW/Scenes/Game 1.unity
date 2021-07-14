@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4447213, g: 0.494254, b: 0.57348, a: 1}
+  m_IndirectSpecularColor: {r: 0.44472146, g: 0.494254, b: 0.5734799, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &28178516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28178517}
+  m_Layer: 0
+  m_Name: SpawnPointBS2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28178517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28178516}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108988530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1123,36 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1922965617908820364, guid: c220af188b039834ab6a40f7a3c5f3dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c220af188b039834ab6a40f7a3c5f3dd, type: 3}
+--- !u!1 &1036391011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036391012}
+  m_Layer: 0
+  m_Name: SpawnPointBS3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036391012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036391011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15, y: 0, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1050572059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2530293271568996033, guid: c220af188b039834ab6a40f7a3c5f3dd, type: 3}
@@ -1403,6 +1463,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1543909008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543909010}
+  - component: {fileID: 1543909009}
+  m_Layer: 0
+  m_Name: SpawnManagerBigSheeps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1543909009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543909008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ff79644121cfd4c822f72133c65e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepPrefab: {fileID: 1725695313688247855, guid: 449fc4f7ce994604c88a2ca2031d1289, type: 3}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPoints:
+  - {fileID: 2104339793}
+  - {fileID: 28178517}
+  - {fileID: 1036391012}
+  sheepCount: 1
+  spawnRate: 0.5
+  waveRate: 3
+  sheepCountWaveIncrease: 2
+  maxWaves: 5
+--- !u!4 &1543909010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543909008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901480288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1553,7 @@ MonoBehaviour:
   spawnRate: 0.5
   waveRate: 3
   sheepCountWaveIncrease: 2
+  maxWaves: 3
 --- !u!4 &1901480290
 Transform:
   m_ObjectHideFlags: 0
@@ -1490,6 +1605,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2530293271568996033, guid: c220af188b039834ab6a40f7a3c5f3dd, type: 3}
   m_PrefabInstance: {fileID: 1016232553}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2104339792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104339793}
+  m_Layer: 0
+  m_Name: SpawnPointBS1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104339793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104339792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15, y: 0, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133912503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1746,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2503532471192193596, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503532471192193596, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2503532471192193596, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepSpawner : MonoBehaviour
+public class BigSheepsSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject sheepPrefab; //prefab ovci
-    [SerializeField] private Vector3 spawnPosition; //tochka spawna 55 0 0
-    [SerializeField] private Vector2 xSpawnBounds; //granici spawna po osi x (random point in range)
+    [SerializeField] private Vector3 spawnPosition; //pozicia spawna
+    [SerializeField] private Transform[] spawnPoints;
+    
 
     [SerializeField] private int sheepCount; //schetchik ovec
     [SerializeField] private float spawnRate; //chastota spawna ovec
@@ -14,11 +15,11 @@ public class SheepSpawner : MonoBehaviour
     [SerializeField] private int sheepCountWaveIncrease; //v skolko raz uvelichitsa volna
     [SerializeField] private int maxWaves; //max colichestvo voln
     private int wavesCounter; //zapisivaet scetchik otspawnenix voln
-    private void Start()
+    void Start()
     {
         StartCoroutine(Spawn());
     }
-       
+
     private IEnumerator Spawn() // sozdaem coroutine
     {
         while (wavesCounter <= maxWaves) // beskonechni cikl while(true) teper konechnii
@@ -37,15 +38,9 @@ public class SheepSpawner : MonoBehaviour
     }
     private void CreateSheep() //sozdanie funkcii spawna
     {
-        //float xRandomPosition = Random.Range(xSpawnBounds.x, xSpawnBounds.y); // diapazon 1-6 daet randomnoe chislo
-        //Vector3 randomSpawnPosition = new Vector3(xRandomPosition, spawnPosition.y, spawnPosition.z); //sozdaetsa novaia coordinata 
-        //Instantiate(sheepPrefab, randomSpawnPosition, sheepPrefab.transform.rotation); //spawn ovec s uslovijami v skobkah
-
-        //korotkaya forma
-        Instantiate(
-            sheepPrefab, 
-            new Vector3(Random.Range(xSpawnBounds.x, xSpawnBounds.y), 
-                        spawnPosition.y, spawnPosition.z), 
-            sheepPrefab.transform.rotation);
+        float RandomPosition = Random.Range(0, spawnPoints.Length); // randomnoe 
+        Vector3 randomSpawnPosition = new Vector3(RandomPosition, spawnPosition.y, spawnPosition.z); //sozdaetsa novaia coordinata 
+        Instantiate(sheepPrefab, randomSpawnPosition, sheepPrefab.transform.rotation); //spawn ovec s uslovijami v skobkah
+                
     }
 }
