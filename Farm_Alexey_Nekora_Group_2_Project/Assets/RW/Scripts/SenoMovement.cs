@@ -27,8 +27,9 @@ public class SenoMovement : MonoBehaviour
         Sheep sheep = other.GetComponent<Sheep>();
         if (sheep != null)
         {
+            sheep.SaveSheep(); //vizov metoda SaveShepp iz skrita Sheep
             Destroy(gameObject); //seno destr
-            Destroy(other.gameObject); //ovca destr
+            
         }
 
         if (other.gameObject.tag == "SenoDestroyTrigger") // alternativa: other.CompareTag("SenoDestroyTrigger");

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SheepSpawner : MonoBehaviour
 {
+    [SerializeField] private List<Transform> spawnPoints; //spisok tochek spawna
+
+
+
     [SerializeField] private GameObject sheepPrefab; //prefab ovci
     [SerializeField] private Vector3 spawnPosition; //tochka spawna 55 0 0
     [SerializeField] private Vector2 xSpawnBounds; //granici spawna po osi x (random point in range)
@@ -13,7 +17,7 @@ public class SheepSpawner : MonoBehaviour
     [SerializeField] private float waveRate; //chastota mezhdu volnami
     [SerializeField] private int sheepCountWaveIncrease; //v skolko raz uvelichitsa volna
     [SerializeField] private int maxWaves; //max colichestvo voln
-    private int wavesCounter; //zapisivaet scetchik otspawnenix voln
+    private int wavesCounter; //zapisivaet schetchik otspawnenix voln
     private void Start()
     {
         StartCoroutine(Spawn());
@@ -25,7 +29,8 @@ public class SheepSpawner : MonoBehaviour
         {
             for (int i = 0; i < sheepCount; i++)
             {
-                CreateSheep(); //spawn
+                //CreateSheep(); //spawn
+                CreateSheepInSpawnPoints(); // spa
                 yield return new WaitForSeconds(spawnRate); // timer spawna ovec
 
             }
@@ -47,5 +52,11 @@ public class SheepSpawner : MonoBehaviour
             new Vector3(Random.Range(xSpawnBounds.x, xSpawnBounds.y), 
                         spawnPosition.y, spawnPosition.z), 
             sheepPrefab.transform.rotation);
+    }
+
+    public void CreateSheepInSpawnPoints()
+    {
+        int randomPointIndex = Random.Range(0, spawnPoints.Count);
+        Instantiate(sheepPrefab, spawnPoints[randomPointIndex].position, sheepPrefab.transform.rotation);
     }
 }
