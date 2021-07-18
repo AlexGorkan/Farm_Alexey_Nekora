@@ -29,14 +29,14 @@ public class SheepSpawner : MonoBehaviour
         {
             for (int i = 0; i < sheepCount; i++)
             {
-                //CreateSheep(); //spawn
-                CreateSheepInSpawnPoints(); // spa
+                CreateSheep(); //spawn ovec
+                CreateSheepInSpawnPoints(); // spawn ovec v treh tochkax
                 yield return new WaitForSeconds(spawnRate); // timer spawna ovec
 
             }
             sheepCount *= sheepCountWaveIncrease; //uvelichivaet kolichestvo voln
             yield return new WaitForSeconds(waveRate); // timer voln
-            wavesCounter += 1; //schetchik kolichestva zaspawnenix voln
+            wavesCounter ++; //schetchik kolichestva zaspawnenix voln
 
         }
     }

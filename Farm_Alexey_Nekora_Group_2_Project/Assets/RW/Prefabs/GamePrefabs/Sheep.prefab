@@ -128,5 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   moveDirection: {x: 0, y: -1, z: 0}
-  force: 500
+  force: 1000
+  riverJumpForce: 300
   particleHearths: {fileID: 342966361983705815, guid: d4c7a11c2bd59304b9b48b9c7c1cc24d, type: 3}

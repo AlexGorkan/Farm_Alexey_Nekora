@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed; 
     [SerializeField] private Vector3 moveDirection;
     [SerializeField] private float force; //sila prizhka
+    [SerializeField] private float riverJumpForce; //sila prizhka
     private Rigidbody rb; //poluchaem rigidbody ovci
-    [SerializeField] private GameObject particleHearths;
+    private BoxCollider bcol; //poluchaem box collider ovci
+    [SerializeField] private GameObject particleHearths; //ссылка на партикл в этой переменной
     
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>(); //poluchaem komponent ovci
+        bcol = GetComponent<BoxCollider>(); //poluchaem komponent ovci 
     }
     void Update()
     {
@@ -23,9 +26,19 @@ public class Sheep : MonoBehaviour
     {
         rb.isKinematic = false; //obrashaemsa k rigidbody ovci i otkluchaem kinematiku chtobi vkluchit fiziku
         rb.AddForce(Vector3.up * force); //prilagaem silu
-        //otkluchit box collider
-        GameObject particles = Instantiate(particleHearths, transform.position, particleHearths.transform.rotation);
+        rb.useGravity = false; //otkluchaem gravitaciyu
+        moveSpeed = 0f; 
+        GameObject particles = Instantiate(particleHearths, transform.position, particleHearths.transform.rotation); //sozdaem instance particla
         Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
-        Destroy(particles, 2f); //destroy particles
+        Destroy(particles, 2f); //destroy particles s zaderzhkoy
+    }
+
+    public void RiverJump()
+    {
+        rb.isKinematic = false; //obrashaemsa k rigidbody ovci i otkluchaem kinematiku chtobi vkluchit fiziku
+        rb.AddForce(Vector3.up * riverJumpForce); //prilagaem silu
+        
+
+
     }
 }

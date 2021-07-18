@@ -34,7 +34,7 @@ public class SenoMovement : MonoBehaviour
 
         if (other.gameObject.tag == "SenoDestroyTrigger") // alternativa: other.CompareTag("SenoDestroyTrigger");
         {
-            Destroy(gameObject); //destroy seno pri stolknovenii s other kotoroe trigger;
+            Destroy(gameObject); //destroy seno pri stolknovenii s "other" kotoroe trigger;
             //print(other.gameObject.name);
                
         }
