@@ -1734,7 +1734,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543909010}
-  - component: {fileID: 1543909009}
   m_Layer: 0
   m_Name: SpawnManagerBigSheeps
   m_TagString: Untagged
@@ -1742,29 +1741,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1543909009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543909008}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ff79644121cfd4c822f72133c65e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheepPrefab: {fileID: 1725695313688247855, guid: 449fc4f7ce994604c88a2ca2031d1289, type: 3}
-  spawnPosition: {x: 0, y: 0, z: 0}
-  spawnPoints:
-  - {fileID: 2104339793}
-  - {fileID: 1507768454}
-  - {fileID: 6760972}
-  sheepCount: 1
-  spawnRate: 0.5
-  waveRate: 3
-  sheepCountWaveIncrease: 2
-  maxWaves: 5
 --- !u!4 &1543909010
 Transform:
   m_ObjectHideFlags: 0
