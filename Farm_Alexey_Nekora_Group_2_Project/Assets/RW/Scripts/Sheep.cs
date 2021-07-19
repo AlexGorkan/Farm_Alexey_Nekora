@@ -36,9 +36,11 @@ public class Sheep : MonoBehaviour
     public void RiverJump()
     {
         rb.isKinematic = false; //obrashaemsa k rigidbody ovci i otkluchaem kinematiku chtobi vkluchit fiziku
-        rb.AddForce(Vector3.up * riverJumpForce); //prilagaem silu
-        
+        rb.AddForce(Vector3.up * riverJumpForce); //prilagaem silu prizhku cherez reku
+    }
 
-
+    public void SheepLanding()
+    {
+        rb.isKinematic = true; 
     }
 }

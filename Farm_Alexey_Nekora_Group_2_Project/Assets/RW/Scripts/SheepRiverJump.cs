@@ -12,7 +12,7 @@ public class SheepRiverJump : MonoBehaviour
         if (sheepModel != null)
         {
             sheepModel.RiverJump();
-            
+
         }
     }
        
