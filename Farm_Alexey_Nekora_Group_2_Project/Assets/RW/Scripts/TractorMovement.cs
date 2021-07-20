@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TractorMovement : MonoBehaviour
 {
+    enum TractorCondition { Move, Stop } //all conditions of tractor
+    TractorCondition tractorCondition = TractorCondition.Stop; //default  condition of tractor
+
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab; //chem streliat (ssilka na object)
     [SerializeField] private Transform spawnPoint; //tochka spawna na drugom objekte
@@ -15,7 +18,7 @@ public class TractorMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float bounds;
     private float direction;
-    private bool isPress;
+    
     
 
 
@@ -26,7 +29,7 @@ public class TractorMovement : MonoBehaviour
     }
     void Update()
     {
-        if (isPress)
+        if (tractorCondition == TractorCondition.Move)
         {
 
 
@@ -36,8 +39,8 @@ public class TractorMovement : MonoBehaviour
             }
         }
 
-        //nextFire += Time.deltaTime; //dlja plusovogo
-        // -= Time.deltaTime; minusovij timer
+        //nextFire += Time.deltaTime; //dlja plusovogo timera
+        // -= Time.deltaTime; minusovij timer schitaet
 
 
 
@@ -93,19 +96,18 @@ public class TractorMovement : MonoBehaviour
     public void PressLeft()
     {
         direction = 1f;
-        isPress = true;
+        tractorCondition = TractorCondition.Move;
     }
 
     public void PressRight()
     {
         direction = -1;
-        isPress = true;
+        tractorCondition = TractorCondition.Move;
     }
 
     public void StopPress()
     {
-        //direction = 0f;
-        isPress = false;
+        tractorCondition = TractorCondition.Stop;
     }
 
 
