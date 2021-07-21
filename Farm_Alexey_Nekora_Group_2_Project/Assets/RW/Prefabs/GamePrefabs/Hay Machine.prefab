@@ -9829,6 +9829,7 @@ MonoBehaviour:
   senoPrefab: {fileID: 1209247178507107294, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
   spawnPoint: {fileID: 2125269005203075755}
   fireRate: 1
+  senoStartAmount: 4
   senoContainer: {fileID: 0}
   speed: 20
   bounds: 22

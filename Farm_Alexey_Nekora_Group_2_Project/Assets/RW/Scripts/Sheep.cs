@@ -13,8 +13,8 @@ public class Sheep : MonoBehaviour
     private BoxCollider bcol; //poluchaem box collider ovci
     [SerializeField] private GameObject particleHearths; //ссылка на партикл в этой переменной
     [SerializeField] private Vector3 sheepOffset; //sdvig
-    //sovdat sostoyanie enum
-    //prisvoit startovoe znachenie
+    enum SheepConditions { Stop, Move, Jump } //sovdat sostoyanie enum
+    SheepConditions sheepConditions = SheepConditions.Move; //prisvoit startovoe znachenie
     
     
 
@@ -29,7 +29,11 @@ public class Sheep : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        if (sheepConditions == SheepConditions.Move)
+        {
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        }
+        
     }
     public void SaveSheep()
     {
@@ -37,7 +41,7 @@ public class Sheep : MonoBehaviour
         rb.AddForce(Vector3.up * force); //prilagaem silu
         rb.useGravity = false; //otkluchaem gravitaciyu
         bcol.enabled = false; // otkluchit boxcollider
-        moveSpeed = 0f; //prisvoit sosoyanie ostanovki vmesto 0
+        sheepConditions = SheepConditions.Stop;  
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
         Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
@@ -46,16 +50,16 @@ public class Sheep : MonoBehaviour
 
     public void RiverJump()
     {
+
         rb.isKinematic = false; //obrashaemsa k rigidbody ovci i otkluchaem kinematiku chtobi vkluchit fiziku
         rb.AddForce(new Vector3(0f, 1f, -1f) * riverJumpForce); //prilagaem silu prizhku cherez reku
-        moveSpeed = 0f;
-        //prisvoit sosoyanie prizhka
+        sheepConditions = SheepConditions.Jump;
     }
 
     public void SheepLanding()
     {
         rb.isKinematic = true;
         moveSpeed = startSpeed;
-        //prisvoit sosoyanie idti
+        sheepConditions = SheepConditions.Move;
     }
 }
