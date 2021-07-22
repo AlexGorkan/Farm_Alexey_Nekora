@@ -43,19 +43,14 @@ public class TractorMovement : MonoBehaviour
                 transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
             }
         }
-        //for (int i = senoAmount; i < length; i++)
-        //{
-
-        //}
-        
-        if (senoAmount == 0)
+               
+        if (senoAmount <= 0)
         {
             
             tractorCondition = TractorCondition.Reload;
             tractorCondition = TractorCondition.Stop;
-            reloadComplete -= Time.deltaTime;
+            reloadComplete -= Time.time;
             Debug.Log("Перезарядка завершится через: " + reloadComplete + " секунд");
-            
         }
         
         //nextFire += Time.deltaTime; //dlja plusovogo timera
@@ -98,17 +93,17 @@ public class TractorMovement : MonoBehaviour
         //    // nextFire = fireRate; // dlja minusovogo
         //}
                
-        if (Time.time > nextFire)
+        if (Time.time > nextFire && senoAmount > 0)
         
         {
             nextFire = Time.time + fireRate;
             GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
             Destroy(seno, 15f);
             seno.transform.SetParent(senoContainer);
-            
-            
+            senoAmount--; //otnimaem seno iz magazina
+
         }
-        senoAmount --; //otnimaem seno iz magazina
+        
         
     }
 
