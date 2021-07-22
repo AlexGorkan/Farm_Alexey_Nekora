@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3790e795d6aac0c449156d1dc9902178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 6
+  sheepProperty: {fileID: 11400000, guid: ff5e54226c1e0f0438a773633207d2fb, type: 2}
   moveDirection: {x: 0, y: -1, z: 0}
   force: 1000
   riverJumpForce: 180
