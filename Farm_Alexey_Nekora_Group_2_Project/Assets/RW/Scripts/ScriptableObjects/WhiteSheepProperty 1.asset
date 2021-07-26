@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: WhiteSheepProperty 1
   m_EditorClassIdentifier: 
   sheepName: 
-  speed: 7
+  speed: 10
+  sheepSize: 3
   material: {fileID: 2100000, guid: f39366aa0e7aa0148ba53a4248ce682f, type: 2}
+  sheepMaterials: []

@@ -7,9 +7,23 @@ public class SheepProperty : ScriptableObject
 {
     [SerializeField] private string sheepName;
     [SerializeField] private float speed;
+    [SerializeField] private float sheepSize;
     [SerializeField] private Material material;
+    [SerializeField] private List<Material> sheepMaterials;
+    private int randomMaterial;
 
-
+    public float Size
+    {
+        get
+        {
+            return sheepSize;
+        }
+        set
+        {
+            sheepSize = value;
+        }
+       
+    }
     public string Name 
     {
         get 
@@ -31,24 +45,55 @@ public class SheepProperty : ScriptableObject
 
     }
     public float Speed // svoistvo dlja peremennoi speed
-    { 
-        get 
+    {
+        get
         { 
-            return speed; //poluchaem znachenie iz peremennoi speed
+            if (speed == 0f)
+            {
+                Debug.LogWarning("Скорость не задана. Установлена стандартная скорость.");
+                return 10f;
+                
+            }
+            else
+            {
+                return speed;
+            }
         }
-        //private set
-        //{
-        //    speed = value; //value - prisvoenoe znachenie 
-        //}
+        
+        set
+        {
+            if (speed >= 12f)
+            {
+                Debug.LogWarning("Вы превысили скорость. Установлена стандартная скорость.");
+                speed = 10f;
+                
+            }
+            else
+            {
+                speed = value; //value - prisvoenoe znachenie 
+            }
+            
+        }
             
     }
     //private void Awake() // izmenjaem skorost tolko tut
     //{
-    //    Speed = 10f;
+        
     //}
 
 
-    public Material Material => material; // poluchaem get
+    //public Material Material => material; // poluchaem get
     //public Material Material { get { return material; } }
-        
+    public Material Material
+    {
+        get 
+        {
+            int randomMaterials = Random.Range(0, sheepMaterials.Count);
+            return sheepMaterials[randomMaterials];
+             
+        }
+    }
+
+
+
 }

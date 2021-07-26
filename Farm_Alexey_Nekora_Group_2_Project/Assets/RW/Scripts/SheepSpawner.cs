@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SheepSpawner : MonoBehaviour
 {
+    [SerializeField] private SheepProperty sheepProperty;
     [SerializeField] private List<Transform> spawnPoints; //spisok tochek spawna
+    
 
 
 
@@ -18,9 +20,11 @@ public class SheepSpawner : MonoBehaviour
     [SerializeField] private int sheepCountWaveIncrease; //v skolko raz uvelichitsa volna
     [SerializeField] private int maxWaves; //max colichestvo voln
     private int wavesCounter; //zapisivaet schetchik otspawnenix voln
+    
     private void Start()
     {
         StartCoroutine(Spawn());
+                
     }
        
     private IEnumerator Spawn() // sozdaem coroutine
@@ -32,11 +36,12 @@ public class SheepSpawner : MonoBehaviour
                 CreateSheep(); //spawn ovec
                 CreateSheepInSpawnPoints(); // spawn ovec v treh tochkax
                 yield return new WaitForSeconds(spawnRate); // timer spawna ovec
-
+                
             }
             sheepCount *= sheepCountWaveIncrease; //uvelichivaet kolichestvo voln
             yield return new WaitForSeconds(waveRate); // timer voln
             wavesCounter ++; //schetchik kolichestva zaspawnenix voln
+
 
         }
     }
@@ -52,11 +57,14 @@ public class SheepSpawner : MonoBehaviour
             new Vector3(Random.Range(xSpawnBounds.x, xSpawnBounds.y), 
                         spawnPosition.y, spawnPosition.z), 
             sheepPrefab.transform.rotation);
+        
     }
 
     public void CreateSheepInSpawnPoints()
     {
         int randomPointIndex = Random.Range(0, spawnPoints.Count);
         Instantiate(sheepPrefab, spawnPoints[randomPointIndex].position, sheepPrefab.transform.rotation);
+        
+        
     }
 }

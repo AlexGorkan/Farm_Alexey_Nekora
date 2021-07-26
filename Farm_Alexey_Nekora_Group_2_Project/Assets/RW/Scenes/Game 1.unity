@@ -1768,6 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469af7d5a85899f46a2b285e08518d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheepProperty: {fileID: 11400000, guid: ff5e54226c1e0f0438a773633207d2fb, type: 2}
   spawnPoints:
   - {fileID: 2104339793}
   - {fileID: 1507768454}

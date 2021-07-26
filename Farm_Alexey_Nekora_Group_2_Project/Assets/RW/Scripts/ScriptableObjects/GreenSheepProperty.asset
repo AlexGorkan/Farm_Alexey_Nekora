@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: GreenSheepProperty
   m_EditorClassIdentifier: 
   sheepName: Molly
-  speed: 5
+  speed: 11
+  sheepSize: 2
   material: {fileID: 2100000, guid: 1bc8788c2ed199f43a0d7f69355381c5, type: 2}
+  sheepMaterials:
+  - {fileID: 2100000, guid: 1bc8788c2ed199f43a0d7f69355381c5, type: 2}
+  - {fileID: 2100000, guid: daf2992ef27df9d46b918c5078c2877e, type: 2}
+  - {fileID: 2100000, guid: f39366aa0e7aa0148ba53a4248ce682f, type: 2}

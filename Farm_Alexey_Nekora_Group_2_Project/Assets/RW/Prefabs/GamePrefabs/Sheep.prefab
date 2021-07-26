@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheepProperty: {fileID: 11400000, guid: ff5e54226c1e0f0438a773633207d2fb, type: 2}
+  sheepMaterials: []
   moveDirection: {x: 0, y: -1, z: 0}
   force: 1000
   riverJumpForce: 180
