@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8cd852cf3f61c42a309233d5cd1718, type: 3}
   m_Name: RedSheepProperty 1
   m_EditorClassIdentifier: 
-  sheepName: 
+  sheepName: Molly
   speed: 10
-  sheepSize: 3
+  sheepSize: 2
   material: {fileID: 2100000, guid: daf2992ef27df9d46b918c5078c2877e, type: 2}
-  sheepMaterials: []

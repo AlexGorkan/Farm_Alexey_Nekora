@@ -126,10 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3790e795d6aac0c449156d1dc9902178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepProperty: {fileID: 11400000, guid: ff5e54226c1e0f0438a773633207d2fb, type: 2}
-  sheepMaterials: []
+  sheepProperty:
+  - {fileID: 11400000, guid: ff5e54226c1e0f0438a773633207d2fb, type: 2}
+  - {fileID: 11400000, guid: 92f639580237d2940bae4ca07c175ba9, type: 2}
+  - {fileID: 11400000, guid: 0be05e199474796479e9b90a27a74ab2, type: 2}
   moveDirection: {x: 0, y: -1, z: 0}
   force: 1000
   riverJumpForce: 180
   particleHearths: {fileID: 342966361983705815, guid: d4c7a11c2bd59304b9b48b9c7c1cc24d, type: 3}
   sheepOffset: {x: 0, y: 3, z: 0}
+  soundManager: {fileID: 11400000, guid: 1a21e5de4e2362941a2444b84ca5adc8, type: 2}

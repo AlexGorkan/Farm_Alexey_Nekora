@@ -9,19 +9,14 @@ public class SheepProperty : ScriptableObject
     [SerializeField] private float speed;
     [SerializeField] private float sheepSize;
     [SerializeField] private Material material;
-    [SerializeField] private List<Material> sheepMaterials;
-    private int randomMaterial;
-
-    public float Size
+        
+    public Vector3 Size
     {
         get
         {
-            return sheepSize;
+            return new Vector3 (sheepSize, sheepSize, sheepSize);
         }
-        set
-        {
-            sheepSize = value;
-        }
+        
        
     }
     public string Name 
@@ -60,20 +55,20 @@ public class SheepProperty : ScriptableObject
             }
         }
         
-        set
-        {
-            if (speed >= 12f)
-            {
-                Debug.LogWarning("Вы превысили скорость. Установлена стандартная скорость.");
-                speed = 10f;
+        //set
+        //{
+        //    if (speed >= 12f)
+        //    {
+        //        Debug.LogWarning("Вы превысили скорость. Установлена стандартная скорость.");
+        //        speed = 10f;
                 
-            }
-            else
-            {
-                speed = value; //value - prisvoenoe znachenie 
-            }
+        //    }
+        //    else
+        //    {
+        //        speed = value; //value - prisvoenoe znachenie 
+        //    }
             
-        }
+        //}
             
     }
     //private void Awake() // izmenjaem skorost tolko tut
@@ -88,8 +83,7 @@ public class SheepProperty : ScriptableObject
     {
         get 
         {
-            int randomMaterials = Random.Range(0, sheepMaterials.Count);
-            return sheepMaterials[randomMaterials];
+            return material;
              
         }
     }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    [SerializeField] private SheepProperty sheepProperty;
-    [SerializeField] private List<SheepProperty> sheepMaterials;
+    //[SerializeField] private SheepProperty sheepProperty;
+    [SerializeField] private List<SheepProperty> sheepProperty;
 
     //[SerializeField] private float startSpeed;
     [SerializeField] private Vector3 moveDirection;
@@ -14,15 +14,15 @@ public class Sheep : MonoBehaviour
     [SerializeField] private GameObject particleHearths; //ссылка на партикл в этой переменной
     [SerializeField] private Vector3 sheepOffset; //sdvig koordinat dlja spawna particle effecta
 
-    private Transform sheepSize;
-
     private Rigidbody rb; //poluchaem rigidbody ovci
     private BoxCollider bcol; //poluchaem box collider ovci
     private float moveSpeed;
     private MeshRenderer mRenderer; // poluchaem komponent Mesh Renderer
     enum SheepConditions { Stop, Move, Jump } //sovdat sostoyanie enum
     SheepConditions sheepConditions = SheepConditions.Move; //prisvoit startovoe znachenie
-    
+    private int randomSheepPropertyIndex;
+
+    [SerializeField] private SoundManager soundManager;
     
 
     private void Awake()
@@ -30,22 +30,21 @@ public class Sheep : MonoBehaviour
         rb = GetComponent<Rigidbody>(); //poluchaem komponent ovci
         bcol = GetComponent<BoxCollider>(); //poluchaem komponent ovci 
         mRenderer = GetComponent<MeshRenderer>(); // poluchaem MeshRenderer
-        sheepSize = GetComponent<Transform>();
-        sheepProperty.Speed = 11f;
     }
     private void Start()
     {
-        Debug.Log(sheepProperty.Name);// get sheep name
-        sheepProperty.Name = "Molly"; // set sheep name
-        Debug.Log(sheepProperty.Name);// get sheep name
-        gameObject.transform.localScale = new Vector3(
-            sheepSize.localScale.x * sheepProperty.Size,
-            sheepSize.localScale.y * sheepProperty.Size,
-            sheepSize.localScale.z * sheepProperty.Size);
+        int randomSheepPropertyIndex = Random.Range(0, sheepProperty.Count);
+        
 
 
-        mRenderer.material = sheepProperty.Material; // prisvaivaem material iz ship proprty
-        moveSpeed = sheepProperty.Speed; // prisvaivaem speed iz ship proprty
+        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name);// get sheep name
+        sheepProperty[randomSheepPropertyIndex].Name = "Molly"; // set sheep name
+        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name);// get sheep name
+        transform.localScale = sheepProperty[randomSheepPropertyIndex].Size;
+
+
+        mRenderer.material = sheepProperty[randomSheepPropertyIndex].Material; // prisvaivaem material iz ship proprty
+        moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed; // prisvaivaem speed iz ship proprty
     }
     void Update()
     {
@@ -65,6 +64,8 @@ public class Sheep : MonoBehaviour
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
         Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
+
+        soundManager.PlaySheepHitClip(); // vizivaem zvuk 
         
     }
 
@@ -79,7 +80,7 @@ public class Sheep : MonoBehaviour
     public void SheepLanding()
     {
         rb.isKinematic = true;
-        moveSpeed = sheepProperty.Speed;
+        moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed;
         sheepConditions = SheepConditions.Move;
     }
 }
