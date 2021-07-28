@@ -9827,6 +9827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   senoPrefab: {fileID: 1209247178507107294, guid: 1397f2b17183aee48af9de5fc797fcd4, type: 3}
+  soundManager: {fileID: 11400000, guid: 1a21e5de4e2362941a2444b84ca5adc8, type: 2}
   spawnPoint: {fileID: 2125269005203075755}
   fireRate: 1
   senoStartAmount: 4

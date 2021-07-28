@@ -14,13 +14,15 @@ public class SoundManager : ScriptableObject
     [SerializeField] private AudioClip shootClip; //melodii v formate mp3 v etom konteinere
     [SerializeField] private AudioClip sheepHitClip;
     [SerializeField] private AudioClip sheepDropClip;
-    
-    
+    [SerializeField] private AudioClip clickButtonClip;
+
+
     private Vector3 cameraPosition;
     private void PlaySound(AudioClip audioClip) //playsound - metod v kotorom poluchaem audioclip
     {
         cameraPosition = Camera.main.transform.position;
         AudioSource.PlayClipAtPoint(audioClip, cameraPosition); // PlayClipAtPoint - funkciz proigrivaet audioClip v pozicii kameri
+        
     }
 
     public void PlayShootClip()
@@ -35,5 +37,8 @@ public class SoundManager : ScriptableObject
     {
         PlaySound(sheepDropClip);
     }
-
+    public void PlayClickButtonClip()
+    {
+        PlaySound(clickButtonClip);
+    }
 }

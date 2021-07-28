@@ -9,6 +9,7 @@ public class TractorMovement : MonoBehaviour
 
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab; //chem streliat (ssilka na object)
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private Transform spawnPoint; //tochka spawna na drugom objekte
     [SerializeField] private float fireRate; //chastota spawna
     [SerializeField] private int senoStartAmount; // startovoe kolichestvo sena v obojme
@@ -101,6 +102,8 @@ public class TractorMovement : MonoBehaviour
             Destroy(seno, 15f);
             seno.transform.SetParent(senoContainer);
             senoAmount--; //otnimaem seno iz magazina
+            soundManager.PlayShootClip();
+
 
         }
         
@@ -110,19 +113,23 @@ public class TractorMovement : MonoBehaviour
 
     public void PressLeft()
     {
+        soundManager.PlayClickButtonClip();
         direction = 1f;
         tractorCondition = TractorCondition.Move;
+        
     }
 
     public void PressRight()
     {
         direction = -1;
         tractorCondition = TractorCondition.Move;
+        soundManager.PlayClickButtonClip();
     }
 
     public void StopPress()
     {
         tractorCondition = TractorCondition.Stop;
+        
     }
 
 

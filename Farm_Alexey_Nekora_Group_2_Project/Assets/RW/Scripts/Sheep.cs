@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sheep : MonoBehaviour
 {
     //[SerializeField] private SheepProperty sheepProperty;
-    [SerializeField] private List<SheepProperty> sheepProperty;
+    [SerializeField] private List<SheepProperty> sheepProperty; //список scriptable object for randomization
 
     //[SerializeField] private float startSpeed;
     [SerializeField] private Vector3 moveDirection;
