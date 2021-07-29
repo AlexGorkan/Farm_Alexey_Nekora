@@ -23,7 +23,8 @@ public class Sheep : MonoBehaviour
     private int randomSheepPropertyIndex;
 
     [SerializeField] private SoundManager soundManager;
-    
+    [SerializeField] private ScoreManager scoreManager;
+
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class Sheep : MonoBehaviour
     }
     private void Start()
     {
-        int randomSheepPropertyIndex = Random.Range(0, sheepProperty.Count);
+        randomSheepPropertyIndex = Random.Range(0, sheepProperty.Count);
         
 
 
@@ -66,6 +67,7 @@ public class Sheep : MonoBehaviour
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
 
         soundManager.PlaySheepHitClip(); // vizivaem zvuk 
+        scoreManager.AddSaveSheep(); //dobavliajem ovcu v spasennie na UI
         
     }
 
@@ -82,5 +84,13 @@ public class Sheep : MonoBehaviour
         rb.isKinematic = true;
         moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed;
         sheepConditions = SheepConditions.Move;
+    }
+
+    public void DestroySheep() //public dlja sviazi s drugim scriptom
+    {
+        soundManager.PlayDropClip();
+        scoreManager.AddDropSheep();
+        Destroy(gameObject);
+
     }
 }

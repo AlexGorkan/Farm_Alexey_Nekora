@@ -9789,6 +9789,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4099794698363966534}
   - component: {fileID: 416662854}
+  - component: {fileID: 187573097093508158}
+  - component: {fileID: 2782763902487652278}
   m_Layer: 0
   m_Name: Hay Machine
   m_TagString: Untagged
@@ -9834,3 +9836,43 @@ MonoBehaviour:
   senoContainer: {fileID: 0}
   speed: 20
   bounds: 22
+--- !u!114 &187573097093508158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688621969412217169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eff6203c26f0574cb7c53166fac8575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveSheepEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4315258947810280210, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
+        m_TargetAssemblyTypeName: Sheep, Assembly-CSharp
+        m_MethodName: SaveSheep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2782763902487652278
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688621969412217169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.971177, y: 5.313831, z: 5.6613655}
+  m_Center: {x: 0.020542145, y: 2.1569154, z: 0.5240612}
