@@ -17,6 +17,7 @@ public class TractorMovement : MonoBehaviour
     private float reloadComplete; // timer reloada
     private float nextFire;
     [SerializeField] Transform senoContainer;
+    
 
     [Header("Tractor Property")]
     [SerializeField] private float speed;
@@ -131,8 +132,6 @@ public class TractorMovement : MonoBehaviour
         tractorCondition = TractorCondition.Stop;
         
     }
-
-
-
+       
 
 }

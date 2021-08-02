@@ -18,6 +18,7 @@ public class Sheep : MonoBehaviour
     private BoxCollider bcol; //poluchaem box collider ovci
     private float moveSpeed;
     private MeshRenderer mRenderer; // poluchaem komponent Mesh Renderer
+    
     enum SheepConditions { Stop, Move, Jump } //sovdat sostoyanie enum
     SheepConditions sheepConditions = SheepConditions.Move; //prisvoit startovoe znachenie
     private int randomSheepPropertyIndex;
@@ -31,6 +32,7 @@ public class Sheep : MonoBehaviour
         rb = GetComponent<Rigidbody>(); //poluchaem komponent ovci
         bcol = GetComponent<BoxCollider>(); //poluchaem komponent ovci 
         mRenderer = GetComponent<MeshRenderer>(); // poluchaem MeshRenderer
+        
     }
     private void Start()
     {
@@ -94,10 +96,7 @@ public class Sheep : MonoBehaviour
 
     }
 
-    //public void BoostParticles()
-    //{ 
-    //    particleHearths.
-    //}
+   
     
 
 
