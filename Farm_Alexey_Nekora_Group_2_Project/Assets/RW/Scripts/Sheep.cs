@@ -65,9 +65,9 @@ public class Sheep : MonoBehaviour
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
         Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
-
-        soundManager.PlaySheepHitClip(); // vizivaem zvuk 
         scoreManager.AddSaveSheep(); //dobavliajem ovcu v spasennie na UI
+        soundManager.PlaySheepHitClip(); // vizivaem zvuk 
+        
         
     }
 
@@ -93,4 +93,12 @@ public class Sheep : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+    //public void BoostParticles()
+    //{ 
+    //    particleHearths.
+    //}
+    
+
+
 }

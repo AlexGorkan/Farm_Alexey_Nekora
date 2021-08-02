@@ -7,6 +7,7 @@ using UnityEngine;
 public class CollisionTractorWithSheep : MonoBehaviour
 {
     [SerializeField] private UnityEvent SaveSheepEvent; // sozdaem event 
+    [SerializeField] private UnityEvent ParticleBoostEvent;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,9 +15,9 @@ public class CollisionTractorWithSheep : MonoBehaviour
 
         if (sheep != null)
         {
-            sheep.DestroySheep();
-            
-            //SaveSheepEvent.Invoke();
+            //sheep.DestroySheep();
+            ParticleBoostEvent.Invoke();
+            SaveSheepEvent.Invoke();
         }
     }
 }

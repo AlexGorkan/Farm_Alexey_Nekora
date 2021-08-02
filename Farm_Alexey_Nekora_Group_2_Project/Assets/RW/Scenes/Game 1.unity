@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4447213, g: 0.494254, b: 0.57348, a: 1}
+  m_IndirectSpecularColor: {r: 0.44472146, g: 0.494254, b: 0.5734799, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2126,6 +2126,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667754058}
   m_CullTransparentMesh: 1
+--- !u!114 &1870789274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4315258947810280210, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
+  m_PrefabInstance: {fileID: 2178880071860518640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3790e795d6aac0c449156d1dc9902178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1901480288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2668,10 @@ PrefabInstance:
       propertyPath: senoContainer
       value: 
       objectReference: {fileID: 710135889}
+    - target: {fileID: 187573097093508158, guid: acaed9a4b9c654349a44355b5704c16c, type: 3}
+      propertyPath: SaveSheepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870789274}
     - target: {fileID: 4099794698363966534, guid: acaed9a4b9c654349a44355b5704c16c, type: 3}
       propertyPath: m_RootOrder
       value: 5
