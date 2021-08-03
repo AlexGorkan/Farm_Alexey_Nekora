@@ -9836,6 +9836,7 @@ MonoBehaviour:
   senoContainer: {fileID: 0}
   speed: 20
   bounds: 22
+  senoPoolSize: 4
 --- !u!114 &187573097093508158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9851,7 +9852,7 @@ MonoBehaviour:
   SaveSheepEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4315258947810280210, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
         m_TargetAssemblyTypeName: Sheep, Assembly-CSharp
         m_MethodName: SaveSheep
         m_Mode: 1

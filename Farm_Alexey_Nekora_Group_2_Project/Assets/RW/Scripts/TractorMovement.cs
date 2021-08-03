@@ -17,18 +17,37 @@ public class TractorMovement : MonoBehaviour
     private float reloadComplete; // timer reloada
     private float nextFire;
     [SerializeField] Transform senoContainer;
-    
+
 
     [Header("Tractor Property")]
     [SerializeField] private float speed;
     [SerializeField] private float bounds;
     private float direction;
-    
-    
+
+    [Header("SenoPool")]
+
+    [SerializeField] private int senoPoolSize; //razmer poola
+    private List<GameObject> senos; //objecti v poole
+    private int currentSenoIndex;
+
+    private void Awake()
+    {
+        senos = new List<GameObject>(); //sozdaem spisok dlja poola
+
+    }
 
 
     private void Start()
     {
+        for (int i = 0; i < senoPoolSize; i++)
+        {
+            senos.Add(Instantiate(senoPrefab)); //sozdaem object i pomesharm v list
+            senos[i].transform.SetParent(senoContainer); // pomeschaem seno v senocontainer
+            senos[i].SetActive(false); // deactivacia objecta
+
+        }
+
+
         senoAmount += senoStartAmount;
         reloadComplete += senoStartAmount;
         //nextFire = fireRate; 
@@ -43,6 +62,7 @@ public class TractorMovement : MonoBehaviour
             if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
             {
                 transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
+                
             }
         }
                
@@ -99,9 +119,18 @@ public class TractorMovement : MonoBehaviour
         
         {
             nextFire = Time.time + fireRate;
-            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
-            Destroy(seno, 15f);
-            seno.transform.SetParent(senoContainer);
+
+            senos[currentSenoIndex].transform.position = spawnPoint.position; //berem seno iz poola pod indeksom 0 (currentSenoIndex = 0 po default)
+            senos[currentSenoIndex].SetActive(true); // aktiviruem prefab
+            currentSenoIndex++; // dobavljaem schetchik
+
+            if (currentSenoIndex >= senoPoolSize) // proverka na zapolnenie poola dja sbrosa na 0 index
+            {
+                currentSenoIndex = 0;
+            }
+            //GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
+            //Destroy(seno, 15f);
+
             senoAmount--; //otnimaem seno iz magazina
             soundManager.PlayShootClip();
 

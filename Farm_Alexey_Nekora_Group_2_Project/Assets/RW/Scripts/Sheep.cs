@@ -24,7 +24,8 @@ public class Sheep : MonoBehaviour
     private int randomSheepPropertyIndex;
 
     [SerializeField] private SoundManager soundManager;
-    [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private GameEvent SheepDroppedEvent;
+    [SerializeField] private GameEvent SheepSavedEvent;
 
 
     private void Awake()
@@ -67,10 +68,12 @@ public class Sheep : MonoBehaviour
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
         Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
-        scoreManager.AddSaveSheep(); //dobavliajem ovcu v spasennie na UI
+        
         soundManager.PlaySheepHitClip(); // vizivaem zvuk 
-        
-        
+        SheepSavedEvent.Raise();
+
+
+
     }
 
     public void RiverJump()
@@ -91,7 +94,7 @@ public class Sheep : MonoBehaviour
     public void DestroySheep() //public dlja sviazi s drugim scriptom
     {
         soundManager.PlayDropClip();
-        scoreManager.AddDropSheep();
+        SheepDroppedEvent.Raise();
         Destroy(gameObject);
 
     }

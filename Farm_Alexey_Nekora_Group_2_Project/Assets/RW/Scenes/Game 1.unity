@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44472146, g: 0.494254, b: 0.5734799, a: 1}
+  m_IndirectSpecularColor: {r: 0.4447213, g: 0.494254, b: 0.57348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -386,6 +386,8 @@ GameObject:
   m_Component:
   - component: {fileID: 129706055}
   - component: {fileID: 129706054}
+  - component: {fileID: 129706057}
+  - component: {fileID: 129706056}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -405,6 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4639ead31e8b964fb3a62b00dda2e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveSheepText: {fileID: 1189117962}
+  dropSheepText: {fileID: 1667754060}
+  scoreManager: {fileID: 11400000, guid: 86086c1f494a3c749a23a0e224d61a2c, type: 2}
 --- !u!4 &129706055
 Transform:
   m_ObjectHideFlags: 0
@@ -419,6 +424,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &129706056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129706053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fe094c805e67243a37964bdc511235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fcd964e01aea0314c9b67f410e2dc435, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 86086c1f494a3c749a23a0e224d61a2c, type: 2}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: AddDropSheep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 129706054}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &129706057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129706053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fe094c805e67243a37964bdc511235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 772401bf05587924d9850162f5e49af9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 86086c1f494a3c749a23a0e224d61a2c, type: 2}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: AddSaveSheep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 129706054}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &153453741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,17 +2211,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667754058}
   m_CullTransparentMesh: 1
---- !u!114 &1870789274 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4315258947810280210, guid: 7e960e9b322bfab46a5c809a5487af6d, type: 3}
-  m_PrefabInstance: {fileID: 2178880071860518640}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3790e795d6aac0c449156d1dc9902178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1901480288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,10 +2742,6 @@ PrefabInstance:
       propertyPath: senoContainer
       value: 
       objectReference: {fileID: 710135889}
-    - target: {fileID: 187573097093508158, guid: acaed9a4b9c654349a44355b5704c16c, type: 3}
-      propertyPath: SaveSheepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1870789274}
     - target: {fileID: 4099794698363966534, guid: acaed9a4b9c654349a44355b5704c16c, type: 3}
       propertyPath: m_RootOrder
       value: 5
