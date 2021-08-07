@@ -19,7 +19,7 @@ public class Sheep : MonoBehaviour
     private float moveSpeed;
     private MeshRenderer mRenderer; // poluchaem komponent Mesh Renderer
     
-    enum SheepConditions { Stop, Move, Jump } //sovdat sostoyanie enum
+    enum SheepConditions { Stop, Move, Jump } //sozdat sostoyanie enum
     SheepConditions sheepConditions = SheepConditions.Move; //prisvoit startovoe znachenie
     private int randomSheepPropertyIndex;
 
@@ -68,13 +68,21 @@ public class Sheep : MonoBehaviour
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
         //Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
-        gameObject.SetActive(false);
+        StartCoroutine(SheepSavedTimer()); //zapuskaem timer zaderzhki pered despawnom
+
+       
         
         soundManager.PlaySheepHitClip(); // vizivaem zvuk 
         SheepSavedEvent.Raise();
 
 
 
+    }
+    private IEnumerator SheepSavedTimer() // timer zaderzhki pered despawnom
+    {
+        
+        yield return new WaitForSeconds(0.9f);
+        gameObject.SetActive(false);
     }
 
     public void RiverJump()
