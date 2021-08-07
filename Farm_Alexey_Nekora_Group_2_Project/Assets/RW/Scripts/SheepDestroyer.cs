@@ -14,7 +14,7 @@ public class SheepDestroyer : MonoBehaviour
         {
             //Destroy(other.gameObject); // destroy ovcu
             sheep.DestroySheep(); //vizivaem metod iz Scripta Sheep
-               
+            
         
         }
     }
