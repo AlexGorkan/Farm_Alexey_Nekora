@@ -100,11 +100,11 @@ public class Sheep : MonoBehaviour
         sheepConditions = SheepConditions.Move;
     }
 
-    public void DestroySheep() //public dlja sviazi s drugim scriptom
+    public void DestroySheep() //public metod dlja sviazi s drugim scriptom
     {
         soundManager.PlayDropClip();
         SheepDroppedEvent.Raise();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
     }
 
