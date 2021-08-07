@@ -6,11 +6,11 @@ public class SheepSpawner : MonoBehaviour
 {
     [SerializeField] private SheepProperty sheepProperty;
     [SerializeField] private List<Transform> spawnPoints; //spisok tochek spawna
-    
+    [SerializeField] private string objectTag;
 
 
 
-    [SerializeField] private GameObject sheepPrefab; //prefab ovci
+    //[SerializeField] private GameObject sheepPrefab; //prefab ovci
     [SerializeField] private Vector3 spawnPosition; //tochka spawna 55 0 0
     [SerializeField] private Vector2 xSpawnBounds; //granici spawna po osi x (random point in range)
 
@@ -34,7 +34,7 @@ public class SheepSpawner : MonoBehaviour
             for (int i = 0; i < sheepCount; i++)
             {
                 CreateSheep(); //spawn ovec
-                CreateSheepInSpawnPoints(); // spawn ovec v treh tochkax
+                //CreateSheepInSpawnPoints(); // spawn ovec v treh tochkax
                 yield return new WaitForSeconds(spawnRate); // timer spawna ovec
                 
             }
@@ -47,24 +47,29 @@ public class SheepSpawner : MonoBehaviour
     }
     private void CreateSheep() //sozdanie funkcii spawna
     {
-        //float xRandomPosition = Random.Range(xSpawnBounds.x, xSpawnBounds.y); // diapazon 1-6 daet randomnoe chislo
-        //Vector3 randomSpawnPosition = new Vector3(xRandomPosition, spawnPosition.y, spawnPosition.z); //sozdaetsa novaia coordinata 
+        float xRandomPosition = Random.Range(xSpawnBounds.x, xSpawnBounds.y); // diapazon 1-6 daet randomnoe chislo
+        Vector3 randomSpawnPosition = new Vector3(xRandomPosition, spawnPosition.y, spawnPosition.z); //sozdaetsa novaia coordinata 
         //Instantiate(sheepPrefab, randomSpawnPosition, sheepPrefab.transform.rotation); //spawn ovec s uslovijami v skobkah
+        GameObject sheepObject = ObjectPooler.objectPooler.GetPooledObject(objectTag); //sozdaem objekt so sslikoj na pool
 
+        if (sheepObject == null) { return; } //prerivaet metod esli net ovec v poole
+        sheepObject.transform.position = randomSpawnPosition;
+        sheepObject.SetActive(true);
+        
         //korotkaya forma
-        Instantiate(
-            sheepPrefab, 
-            new Vector3(Random.Range(xSpawnBounds.x, xSpawnBounds.y), 
-                        spawnPosition.y, spawnPosition.z), 
-            sheepPrefab.transform.rotation);
-        
+        //Instantiate(
+        //    sheepPrefab, 
+        //    new Vector3(Random.Range(xSpawnBounds.x, xSpawnBounds.y), 
+        //                spawnPosition.y, spawnPosition.z), 
+        //    sheepPrefab.transform.rotation);
+
     }
 
-    public void CreateSheepInSpawnPoints()
-    {
-        int randomPointIndex = Random.Range(0, spawnPoints.Count);
-        Instantiate(sheepPrefab, spawnPoints[randomPointIndex].position, sheepPrefab.transform.rotation);
+    //public void CreateSheepInSpawnPoints()
+    //{
+    //    int randomPointIndex = Random.Range(0, spawnPoints.Count);
+    //    Instantiate(sheepPrefab, spawnPoints[randomPointIndex].position, sheepPrefab.transform.rotation);
         
         
-    }
+    //}
 }

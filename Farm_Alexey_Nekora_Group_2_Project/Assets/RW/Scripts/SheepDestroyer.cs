@@ -13,8 +13,8 @@ public class SheepDestroyer : MonoBehaviour
         if(sheep != null)
         {
             //Destroy(other.gameObject); // destroy ovcu
-            sheep.DestroySheep(); //vizivaem metod iz Scripta Sheep
-            
+            //sheep.DestroySheep(); //vizivaem metod iz Scripta Sheep
+            sheep.gameObject.SetActive(false);
         
         }
     }

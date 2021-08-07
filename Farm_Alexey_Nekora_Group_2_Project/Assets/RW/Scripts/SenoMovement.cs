@@ -28,15 +28,17 @@ public class SenoMovement : MonoBehaviour
         if (sheep != null)
         {
             sheep.SaveSheep(); //vizov metoda SaveShepp iz skrita Sheep
-            Destroy(gameObject); //seno destr
+            //Destroy(gameObject); //seno destr
+            gameObject.SetActive(false);
             
         }
 
         if (other.gameObject.tag == "SenoDestroyTrigger") // alternativa: other.CompareTag("SenoDestroyTrigger");
         {
-            Destroy(gameObject); //destroy seno pri stolknovenii s "other" kotoroe trigger;
+            gameObject.SetActive(false);
+            //Destroy(gameObject); //destroy seno pri stolknovenii s "other" kotoroe trigger;
             //print(other.gameObject.name);
-               
+
         }
        
         // vtoroi sposob sravnit 

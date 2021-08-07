@@ -66,8 +66,9 @@ public class Sheep : MonoBehaviour
         bcol.enabled = false; // otkluchit boxcollider
         sheepConditions = SheepConditions.Stop;  
         GameObject particles = Instantiate(particleHearths, transform.position + sheepOffset, particleHearths.transform.rotation); //sozdaem instance particla
-        Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
+        //Destroy(gameObject, 0.9f); //ovca destr s zaderzhkoy
         Destroy(particles, 2f); //destroy particles s zaderzhkoy
+        gameObject.SetActive(false);
         
         soundManager.PlaySheepHitClip(); // vizivaem zvuk 
         SheepSavedEvent.Raise();
